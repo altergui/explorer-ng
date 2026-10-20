@@ -6,7 +6,6 @@ import type {
   BlockList,
   ChainInfo,
   ChainStats,
-  CountResult,
   Election,
   ElectionMetadata,
   ElectionSummary,
@@ -488,11 +487,6 @@ export const useValidators = (pollMs?: number) => {
     queryFn: () => fetchJson<ValidatorList>(q(apiUrl, '/chain/validators')),
     refetchInterval: pollMs ?? refreshMs,
   })
-}
-
-export const useTransactionCount = () => {
-  const { apiUrl, refreshMs } = useApi()
-  return useQuery({ queryKey: ['tx-count', apiUrl], queryFn: () => fetchJson<CountResult>(q(apiUrl, '/chain/transactions/count')), refetchInterval: refreshMs })
 }
 
 /** Pick the readable string out of a value that may be a bare string or a
