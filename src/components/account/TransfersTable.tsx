@@ -16,7 +16,7 @@ interface Props {
 }
 
 /** Paginated token-transfer table for an account, shared between Account and
- *  Organization detail pages: `GET /accounts/{address}/transfers/page/{page}`. */
+ *  Organization detail pages: `GET /chain/transfers?accountId={address}&page={page}`. */
 export const TransfersTable = ({ address }: Props) => {
   const [page, setPage] = useState(0)
   const transfers = useAccountTransfers(address, page)
